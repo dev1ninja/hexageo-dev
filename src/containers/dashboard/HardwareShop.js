@@ -31,7 +31,7 @@ const hardwares = [
 function HardwareShop() {
   const classes = useStyles();
   const theme = useTheme();
-  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
+  const smQuery = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <LoadingContainer>
@@ -57,7 +57,7 @@ function HardwareShop() {
             pt={5} pb={5} pl={2} pr={2}
           >
             {hardwares.map((hardware, index) => (
-              <fieldset key={index} style={{ borderWidth: '3px', borderColor: '#515151', borderRadius: 20, borderStyle: 'solid', backgroundImage: (smQuery ? 'linear-gradient(to top, #515151 18%, rgba(0,0,0,0) 18%' : 'linear-gradient(to top, #515151 12%, rgba(0,0,0,0) 12%)') }}>
+              <fieldset key={index} style={{ borderWidth: '3px', borderColor: '#515151', borderRadius: 20, borderStyle: 'solid', backgroundImage: (smQuery ? 'linear-gradient(to top, #515151 40px, rgba(0,0,0,0) 40px' : 'linear-gradient(to top, #515151 50px, rgba(0,0,0,0) 50px)') }}>
                 <legend style={{marginLeft:'20px'}}>
                   <Typography variant="h6" color="text.tertiary">New</Typography>
                 </legend>
