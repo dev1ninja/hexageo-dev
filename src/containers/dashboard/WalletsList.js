@@ -10,6 +10,7 @@ import RoundButton from '../../components/common/RoundButton';
 const useStyles = makeStyles((theme) => ({
   address: {
     wordBreak: 'break-all',
+    color: theme.palette.text.primary,
   }
 }));
 
@@ -32,7 +33,7 @@ function WalletsList() {
           <legend style={{marginLeft:'20px'}}>
             <Box display="flex" pl={smQuery ? 0 : 2} pr={smQuery ? 0 : 2}>
               <AccountBalanceWalletIcon color="secondary" fontSize="large" />
-              <Typography variant="h4" pl={2}>Your</Typography>
+              <Typography variant="h4" color="text.primary" pl={2}>Your</Typography>
               <Typography variant="h4" color="secondary" pl={1}>Wallets</Typography>
             </Box>
           </legend>
@@ -43,7 +44,7 @@ function WalletsList() {
                   <Icon i={wallet.icon} />
                 </legend>
                 <Box textAlign="center" p={2}>
-                  <Typography variant="h5">{wallet.title}</Typography>
+                  <Typography variant="h5" color="text.primary">{wallet.title}</Typography>
                   <Box display="flex" pt={2}>
                     <Typography variant="body2" className={classes.address} pr={1}>{wallet.address}</Typography>
                     {<ContentCopyIcon />}

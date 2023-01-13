@@ -18,15 +18,7 @@ import SvgIcon from '../../components/common/SvgIcon';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    paddingTop: theme.spacing(4),
-    '@media only screen and (min-width: 800px)': {
-      paddingLeft: '15%',
-    },
-    paddingLeft: '10%',
-    paddingRight: '0%',
-    marginBottom: theme.spacing(5),
+    backgroundColor: theme.palette.background.default,
   },
   contentText: {
     marginTop: 20,
@@ -52,7 +44,7 @@ function Footer() {
   const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Grid container>
+    <Grid container className={classes.container}>
       <Grid item md={6} xs={6}>
         <Box display="flex" justifyContent="space-between" pl="10%" pr="0%">
           <IconButton
@@ -61,7 +53,7 @@ function Footer() {
             color="inherit"
           >
             <SvgIcon width="30px" name="logo" />
-            <Box pl={2}>Hexageo.io</Box>
+            <Box color="text.primary" pl={2}>Hexageo.io</Box>
           </IconButton>
         </Box>
         <Box display={smQuery? '' : 'flex'}  pl="10%" justifyContent="space-between">
@@ -92,13 +84,13 @@ function Footer() {
               alignItems="flex-start"
               p={2}
             >
-              <Typography variant="h5" align="left">
+              <Typography color="text.primary" variant="h5" align="left">
                 Home
               </Typography>
-              <Typography variant="h5" align="left">
+              <Typography color="text.primary" variant="h5" align="left">
                 Overview
               </Typography>
-              <Typography variant="h5" align="left">
+              <Typography color="text.primary" variant="h5" align="left">
                 Profitability Calculator
               </Typography>
             </Box>
@@ -108,13 +100,13 @@ function Footer() {
               alignItems="flex-start"
               p={2}
             >
-              <Typography variant="h5" align="left">
+              <Typography color="text.primary" variant="h5" align="left">
                 How it works
               </Typography>
-              <Typography variant="h5" align="left">
+              <Typography color="text.primary" variant="h5" align="left">
                 FAQ
               </Typography>
-              <Typography variant="h5" align="left">
+              <Typography color="text.primary" variant="h5" align="left">
                 Contact
               </Typography>
             </Box>
@@ -125,7 +117,7 @@ function Footer() {
       <Grid xs={12} item>
         <Divider sx={{ borderBottomWidth: 3, bgcolor: 'secondary.main' }} />
         <Box className={classes.copyright}>
-          <Typography variant="body2">
+          <Typography color="text.primary" variant="body2">
             © Copyright Hexageo 2022 - All Rights Reserved
           </Typography>
         </Box>

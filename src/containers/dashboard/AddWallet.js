@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 10,
     }
   },
+  userBadge: {
+    // height: '0px',
+  },
 }));
 
 function AddWallet() {
@@ -41,10 +44,10 @@ function AddWallet() {
       <Box display={smQuery ? '' : 'flex'} pt={15}>
         <Box className={classes.wallet} p={smQuery ? 2 : 5}>
           <Typography variant="h4" textAlign="center" color="text.tertiary">Add New Wallet</Typography>
-          <Typography variant="h5" pt={3} pb={2}>Choose Payment Methods</Typography>
+          <Typography variant="h5" color="text.primary" pt={3} pb={2}>Choose Payment Methods</Typography>
           <Box display="flex" pb={2}>
             <CheckCircleIcon color="tertiary" />
-            <Typography pl={1}>Cryptocurrency (BTC, ETH, LTC, ....)</Typography>
+            <Typography color="text.primary" pl={1}>Cryptocurrency (BTC, ETH, LTC, ....)</Typography>
           </Box>
           <FormControl fullWidth className={classes.select}>
             <InputLabel>
@@ -65,7 +68,7 @@ function AddWallet() {
             variant="outlined"
             label="Type your wallet address *"
             InputLabelProps={{
-              style: { color: '#000000' }, 
+              style: { color: theme.palette.text.primary }, 
             }}
           />
 
@@ -79,7 +82,7 @@ function AddWallet() {
             variant="outlined"
             label="Type your paypal address *"
             InputLabelProps={{
-              style: { color: '#000000' }, 
+              style: { color: theme.palette.text.primary }, 
             }}
           />
 
@@ -115,7 +118,7 @@ function AddWallet() {
           <Badge
             className={classes.userBadge}
             badgeContent={
-              <Box display="flex" mb={5} ml={3} minWidth={100} bgcolor="background.gray0" borderRadius={3}>
+              <Box display="flex" minWidth={100} bgcolor="background.gray0" borderRadius={3} >
                 <PersonIcon color="primary" />
                 <Typography color="primary">Edit User</Typography>
               </Box>
@@ -129,12 +132,12 @@ function AddWallet() {
             <AccountCircleIcon color="secondary" sx={{ fontSize: '100px' }} />
           </Badge>
           <Box display="flex" justifyContent="center" pt={5}>
-            <Typography variant="h4">User</Typography>
+            <Typography variant="h4" color="text.primary">User</Typography>
             <Typography variant="h4" color="secondary" pl={1}>Information</Typography>
           </Box>
-          <Typography pt={5}>Email: curiouspeter06@gmail.com</Typography>
-          <Typography pt={2}>Address: Teleorman, Peretu, Romania</Typography>
-          <Typography pt={2}>Phone: +1 737 235 8390</Typography>
+          <Typography color="text.primary" pt={5}>Email: curiouspeter06@gmail.com</Typography>
+          <Typography color="text.primary" pt={2}>Address: Teleorman, Peretu, Romania</Typography>
+          <Typography color="text.primary" pt={2}>Phone: +1 737 235 8390</Typography>
         </Box>
         
       </Box>

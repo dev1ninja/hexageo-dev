@@ -40,7 +40,7 @@ function HardwareShop() {
           <legend style={{marginLeft:'20px'}}>
             <Box display="flex" pl={2} pr={2}>
               <Typography variant="h4" color="secondary">Hardware</Typography>
-              <Typography variant="h4" pl={1}>Shop</Typography>
+              <Typography variant="h4" color="text.primary" pl={1}>Shop</Typography>
             </Box>
           </legend>
           {/* <Box display="flex" pt={5} pb={5} pl={2} pr={2}> */}

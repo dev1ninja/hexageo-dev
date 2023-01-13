@@ -62,9 +62,11 @@ function MiningHardwares() {
               {/* <TableCell align="center"><Typography variant="h5" color="secondary">Location</Typography></TableCell> */}
               <TableCell align="center"><Typography variant="h5" color="secondary">Location</Typography></TableCell>
               <TableCell align="center"><Typography variant="h5" color="secondary">Status</Typography></TableCell>
-              <TableCell align="center" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', height: 20 }}>
-                <Icon i="btc" size={20} />
-                <Typography variant="h5" color="secondary">Coin</Typography>
+              <TableCell align="center" sx={{ alignItems: 'center', justifyContent: 'space-evenly', height: 20 }}>
+                <div style={{display: 'flex'}}>
+                  <Icon i="btc" size={20} />
+                  <Typography variant="h5" color="secondary" pl={1}>Coin</Typography>
+                </div>
               </TableCell>
               <TableCell align="center"><Typography variant="h5" color="secondary">Earnings</Typography></TableCell>
               <TableCell align="center">
@@ -95,14 +97,17 @@ function MiningHardwares() {
                     <Typography variant="button" color="primary">{row.status}</Typography>
                   </RoundButton>
                 </TableCell>
-                <TableCell align="center" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', height: 20 }}>
-                  <Icon i="btc" size={20} />
-                  {row.coin}
+                <TableCell align="center" sx={{ alignItems: 'center', justifyContent: 'space-evenly', height: 20 }}>
+                  <div style={{display: 'flex'}}>
+                    <Icon i="btc" size={20} />
+                    <Box pl={1}>{row.coin}</Box>
+                  </div>
                 </TableCell>
                 <TableCell align="center">{row.earnings}</TableCell>
-                <TableCell align="center" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }} >
-                  <SettingsIcon color="tertiary" />
-                  Settings  
+                <TableCell align="center" sx={{ alignItems: 'center', justifyContent: 'space-evenly' }} >
+                  <div style={{display: 'flex'}}>
+                  <SettingsIcon color="tertiary" sx={{}} />Settings  
+                  </div>
                 </TableCell>
               </TableRow>
             ))}

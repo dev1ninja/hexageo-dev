@@ -119,7 +119,7 @@ export const darkTheme = createTheme({
   palette: {
     type: 'light',
     background: {
-      default: colors.white0,
+      default: colors.black0,
       black1: colors.black1,
       green: colors.brown0,
       gray0: colors.gray0,
@@ -137,9 +137,9 @@ export const darkTheme = createTheme({
       main: colors.gray0,
     },
     text: {
-      primary: colors.black0,
+      primary: colors.white0,
       secondary: colors.brown0,
-      tertiary: colors.gray0,
+      tertiary: colors.brown0,
       gray: 'rgba(254, 244, 236, 0.6)',
     },
     error: {
