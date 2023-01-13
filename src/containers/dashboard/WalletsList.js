@@ -47,7 +47,7 @@ function WalletsList() {
                   <Typography variant="h5" color="text.primary">{wallet.title}</Typography>
                   <Box display="flex" pt={2}>
                     <Typography variant="body2" className={classes.address} pr={1}>{wallet.address}</Typography>
-                    {<ContentCopyIcon />}
+                    <ContentCopyIcon style={{ color: theme.palette.text.primary }} />
                   </Box>
                 </Box>
               </fieldset>
