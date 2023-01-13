@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from "coinmarketcap-cryptocurrency-icons";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Badge from '@mui/material/Badge';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -16,6 +16,13 @@ import LoadingContainer from '../../components/common/LoadingContainer';
 import RoundButton from '../../components/common/RoundButton';
 
 const useStyles = makeStyles((theme) => ({
+  wallet: {
+    border: `3px solid ${theme.palette.secondary.main}`,
+    borderRadius: 20,
+    '@media only screen and (min-width: 800px)': {
+      width: '50%',
+    },
+  },
   select: {
     "& .MuiOutlinedInput-notchedOutline": {
       borderColor: theme.palette.text.tertiary,
@@ -26,11 +33,13 @@ const useStyles = makeStyles((theme) => ({
 
 function AddWallet() {
   const classes = useStyles();
+  const theme = useTheme();
+  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <LoadingContainer>
-      <Box display="flex" pt={15}>
-        <Box sx={{ width: '50%', border: 3, borderColor: 'secondary.main', borderRadius: 5 }} p={5}>
+      <Box display={smQuery ? '' : 'flex'} pt={15}>
+        <Box className={classes.wallet} p={smQuery ? 2 : 5}>
           <Typography variant="h4" textAlign="center" color="text.tertiary">Add New Wallet</Typography>
           <Typography variant="h5" pt={3} pb={2}>Choose Payment Methods</Typography>
           <Box display="flex" pb={2}>
@@ -102,7 +111,7 @@ function AddWallet() {
           </RoundButton>
         </Box>
 
-        <Box width="50%" textAlign="center">
+        <Box width={smQuery ? '100%' : '50%'} pt={smQuery ? 5 : 20} textAlign="center">
           <Badge
             className={classes.userBadge}
             badgeContent={

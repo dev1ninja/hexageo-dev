@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RoundButton from "../components/common/RoundButton";
@@ -9,9 +9,12 @@ import AddWallet from "../containers/dashboard/AddWallet";
 import HardwareShop from "../containers/dashboard/HardwareShop";
 
 function Dashboard() {
+  const theme = useTheme();
+  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <PageLayout>
-      <Box display="flex" pt={10} justifyContent="space-between">
+      <Box display={smQuery ? '' : 'flex'} pt={10} justifyContent="space-between">
         <RoundButton
           variant="contained"
           color="tertiary"

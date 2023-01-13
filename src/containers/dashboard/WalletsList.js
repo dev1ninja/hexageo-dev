@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from "coinmarketcap-cryptocurrency-icons";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
@@ -22,19 +22,21 @@ const wallets = [
 
 function WalletsList() {
   const classes = useStyles();
+  const theme = useTheme();
+  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <LoadingContainer>
       <Box pt={15}>
         <fieldset style={{ width: '100%', borderWidth: '3px', borderColor: '#A59263', borderRadius: 20, borderStyle: 'solid', padding: '0px'}}>
           <legend style={{marginLeft:'20px'}}>
-            <Box display="flex" pl={2} pr={2}>
+            <Box display="flex" pl={smQuery ? 0 : 2} pr={smQuery ? 0 : 2}>
               <AccountBalanceWalletIcon color="secondary" fontSize="large" />
               <Typography variant="h4" pl={2}>Your</Typography>
               <Typography variant="h4" color="secondary" pl={1}>Wallets</Typography>
             </Box>
           </legend>
-          <Box display="flex" pt={5} pb={5} pl={2} pr={2}>
+          <Box display={smQuery ? '' : 'flex'} pt={5} pb={5} pl={2} pr={2}>
             {wallets.map((wallet, index) => (
               <fieldset key={index} style={{ borderWidth: '3px', borderColor: '#515151', borderRadius: 10, borderStyle: 'solid', padding: '0px', margin: '20px'}}>
                 <legend style={{marginLeft:'20px'}}>

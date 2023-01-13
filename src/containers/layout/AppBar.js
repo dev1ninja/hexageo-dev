@@ -24,7 +24,7 @@ function CustomAppBar({ checked, setIsDarkTheme }) {
 
   return (
     <AppBar position="fixed" classes={classes}>
-      <Box display="flex" justifyContent="space-between" pl={10} pr={10}>
+      <Box display="flex" justifyContent="space-between" pl="5%" pr="5%">
         <IconButton
           id="sidebar-menu"
           edge="start"

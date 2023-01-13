@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, useTheme, useMediaQuery } from '@mui/material';
 
 function PageLayout({ ...props }) {
+  const theme = useTheme();
+  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box
@@ -9,8 +11,8 @@ function PageLayout({ ...props }) {
       bgcolor="background.default"
       overflow="auto"
       paddingTop="66px"
-      pr="15%"
-      pl="15%"
+      pr={smQuery? '5%' : '15%'}
+      pl={smQuery? '5%' : '15%'}
       {...props}
     />
   );

@@ -4,6 +4,8 @@ import {
   Grid,
   Typography,
   Divider,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -46,11 +48,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer() {
   const classes = useStyles();
+  const theme = useTheme();
+  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container>
       <Grid item md={6} xs={6}>
-        <Box display="flex" justifyContent="space-between" pl={10} pr={10}>
+        <Box display="flex" justifyContent="space-between" pl="10%" pr="0%">
           <IconButton
             id="sidebar-menu"
             edge="start"
@@ -60,7 +64,7 @@ function Footer() {
             <Box pl={2}>Hexageo.io</Box>
           </IconButton>
         </Box>
-        <Box display="flex" justifyContent="space-evenly">
+        <Box display={smQuery? '' : 'flex'}  pl="10%" justifyContent="space-between">
           <TwitterIcon fontSize="large" color="tertiary" />
           <FacebookIcon fontSize="large" color="tertiary" />
           <InstagramIcon fontSize="large" color="tertiary" />
@@ -79,7 +83,7 @@ function Footer() {
         >
           <Box
             display="flex"
-            flexDirection="row"
+            flexDirection={smQuery ? 'column' : 'row'}
             alignItems="flex-start"
           >
             <Box
@@ -88,13 +92,13 @@ function Footer() {
               alignItems="flex-start"
               p={2}
             >
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 Home
               </Typography>
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 Overview
               </Typography>
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 Profitability Calculator
               </Typography>
             </Box>
@@ -104,13 +108,13 @@ function Footer() {
               alignItems="flex-start"
               p={2}
             >
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 How it works
               </Typography>
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 FAQ
               </Typography>
-              <Typography variant="h6" align="left">
+              <Typography variant="h5" align="left">
                 Contact
               </Typography>
             </Box>

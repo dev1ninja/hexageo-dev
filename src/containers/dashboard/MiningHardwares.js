@@ -49,7 +49,7 @@ function MiningHardwares() {
 
   return (
     <LoadingContainer>
-      <Box display="flex" pt={10} pb={5}>
+      <Box display="flex" alignItems="center" pt={10} pb={5}>
         <Typography variant="h4" color="text.secondary">Hotspot / Mining</Typography>
         <Typography variant="h4" color="text.primary" pl={1}>Hardwares</Typography>
       </Box>

@@ -1,8 +1,25 @@
 import React from 'react';
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import LoadingContainer from '../../components/common/LoadingContainer';
 import RoundButton from '../../components/common/RoundButton';
 import NewHardwareImg from '../../assets/images/new-hardware.png';
+
+const useStyles = makeStyles((theme) => ({
+  grid: {
+    display: 'grid',
+    rowGap: '8px',
+    columnGap: '40px',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    marginRight: '50px',
+    marginLeft: '50px',
+    '@media only screen and (max-width: 800px)': {
+      gridTemplateColumns: 'repeat(1, 1fr)',
+      marginRight: 0,
+      marginLeft: 0,
+    },
+  },
+}));
 
 const hardwares = [
   {title: 'Awesome Hardware', amount: 1600},
@@ -12,6 +29,10 @@ const hardwares = [
 ];
 
 function HardwareShop() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const smQuery = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <LoadingContainer>
       <Box pt={15} pb={15}>
@@ -24,25 +45,26 @@ function HardwareShop() {
           </legend>
           {/* <Box display="flex" pt={5} pb={5} pl={2} pr={2}> */}
           <Box
-            sx={{
-              display: 'grid',
-              rowGap: 1,
-              columnGap: 5,
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              marginRight: '50px',
-              marginLeft: '50px',
-            }}
+            className={classes.grid}
+            // sx={{
+            //   display: 'grid',
+            //   rowGap: 1,
+            //   columnGap: 5,
+            //   gridTemplateColumns: 'repeat(2, 1fr)',
+            //   marginRight: '50px',
+            //   marginLeft: '50px',
+            // }}
             pt={5} pb={5} pl={2} pr={2}
           >
             {hardwares.map((hardware, index) => (
-              <fieldset key={index} style={{ borderWidth: '3px', borderColor: '#515151', borderRadius: 20, borderStyle: 'solid', backgroundImage: 'linear-gradient(to top, #515151 12%, rgba(0,0,0,0) 12%)'}}>
+              <fieldset key={index} style={{ borderWidth: '3px', borderColor: '#515151', borderRadius: 20, borderStyle: 'solid', backgroundImage: (smQuery ? 'linear-gradient(to top, #515151 18%, rgba(0,0,0,0) 18%' : 'linear-gradient(to top, #515151 12%, rgba(0,0,0,0) 12%)') }}>
                 <legend style={{marginLeft:'20px'}}>
                   <Typography variant="h6" color="text.tertiary">New</Typography>
                 </legend>
                 <Box component="img" width="100%" src={NewHardwareImg} />
                 <Box display="flex" justifyContent="space-between">
-                  <Typography variant="h6" color="primary">Awesome Hardware</Typography>
-                  <Typography variant="h6" color="primary">$1600</Typography>
+                  <Typography variant={smQuery ? 'h5' : 'h6'} color="primary">Awesome Hardware</Typography>
+                  <Typography variant={smQuery ? 'h5' : 'h6'} color="primary">$1600</Typography>
                 </Box>
               </fieldset>
             ))}
